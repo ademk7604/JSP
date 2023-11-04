@@ -46,6 +46,27 @@ Sayi 2: <%= sayi2 %>
 Sayi 3: <%= sayi3 %>
 <br>
 Sayi 4: <%= sayi4 %>
+<br>
+<%
+	int s1 = 30, s2 = 50;
+	bilgi = "s1 ile s2 toplami: "+(s1+s2);
+	Double kilo = 95.5;
+	Integer boy = 181;
+	
+	pageContext.setAttribute("sayi1", s1);
+	pageContext.setAttribute("sayi2", s2);
+	out.print("sayi1: ");
+	out.print(pageContext.getAttribute("sayi1"));
+	out.print("sayi1: ");
+	out.print(pageContext.getAttribute("sayi2"));
+	
+	pageContext.setAttribute("bilgi", bilgi, pageContext.SESSION_SCOPE);
+	pageContext.setAttribute("kilo", kilo, pageContext.SESSION_SCOPE);
+	
+	bilgi += " VIA SESSION OBJECT";
+	session.setAttribute("bilgi2", bilgi);
+	application.setAttribute("kilo2", kilo);
 
+%>
 </body>
 </html>
