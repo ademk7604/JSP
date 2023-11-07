@@ -11,6 +11,15 @@
   </welcome-file-list>
   
   <servlet>
+  	<servlet-name>anasayfa</servlet-name>
+  	<jsp-file>//index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>anasayfa</servlet-name>
+ 	<url-pattern>/anasayfa</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>hesapMakinesi</servlet-name>
   	<jsp-file>/hesapMakinesi.jsp</jsp-file>
   	<init-param>

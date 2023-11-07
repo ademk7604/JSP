@@ -88,7 +88,7 @@ out.print(isim+"<br>");
 %>
 <jsp:include page="partialViews/bilgi.html"></jsp:include>
 
-
-
+<a href="hesapmakinesi">Hesap Makinesi</a>
+<a href="korunanParametreler.jsp">Korunan Parametreler</a>
 </body>
 </html>

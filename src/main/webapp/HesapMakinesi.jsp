@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,8 +31,7 @@
 	
 	ServletConfig sC = getServletConfig();
 	String bilgi = sC.getInitParameter("bilgi");
-	int sayi3 = Integer.parseInt(sC.getInitParameter("sayi1"));
-	int sayi4 = Integer.parseInt(sC.getInitParameter("sayi2"));
+	
 
 
 %>
@@ -64,7 +63,9 @@ Sayi 4: <%= sayi4 %>
 	pageContext.setAttribute("bilgi", bilgi, pageContext.SESSION_SCOPE);
 	pageContext.setAttribute("kilo", kilo, pageContext.APPLICATION_SCOPE);
 	
-	
+	request.setAttribute("bilgi", bilgi);
+	session.setAttribute("bilgi", bilgi);
+	application.setAttribute("bilgi", bilgi);
 	bilgi += " VIA SESSION OBJECT";
 	session.setAttribute("bilgi2", bilgi);
 	application.setAttribute("kilo2", kilo);
@@ -78,7 +79,44 @@ Sayi 4: <%= sayi4 %>
 	out.println("<br>Session Scope  bilgi: "+session.getAttribute("bilgi"));
 	out.println("<br>Session Scope  bilgi2: "+pageContext.getAttribute("bilgi2", pageContext.SESSION_SCOPE));
 	out.println("<br>Session Scope  bilgi2: "+session.getAttribute("bilgi2"));
-
+	
+	out.println("<br>Application Scope kilo: "+pageContext.getAttribute("kilo", pageContext.APPLICATION_SCOPE));
+	out.println("<br>Application Scope kilo: "+application.getAttribute("kilo"));
+	out.println("<br>Application Scope kilo2: "+pageContext.getAttribute("kilo2", pageContext.APPLICATION_SCOPE));
+	out.println("<br>Application Scope kilo2: "+application.getAttribute("kilo2"));
+	
+ 
+	//                pageContext -> request -> session -> application 
+	//veri siralamasi  en ic scope   sonra       sonra     daha sonrada geliyor
+	String name;
+	name = "PAGECONTEXT Adem kok";
+	pageContext.setAttribute("anme", name); // burasi yorumdayken REQUEST den alir
+	name = "REQUEST Adem kok";
+	request.setAttribute("anme", name);
+	name = "SESSION Adem kok";
+	session.setAttribute("anme", name);
+	name = "APPLICATION Adem kok";
+	application.setAttribute("anme", name);
+	
+	out.println("<br> PAGECONTEXT name: "+pageContext.getAttribute("name"));
+	out.println("<br> REQUEST name: "+request.getAttribute("name"));
+	out.println("<br> SESSION name: "+session.getAttribute("name"));
+	out.println("<br> APPLICATION name: "+application.getAttribute("name"));
+	
+	//findAttribute - scopelari tarar yani veri olusturmayi sagliyor
+	out.print("<br>FINDATTRIBUTE: "+pageContext.findAttribute("name")); 
+	// 
+	/*
+	page naull aldigimda request sciope calisir sirayi takip eder
+	ma uygulama tekrar kapatilip acilmadiysa session da bir kere 
+	atanen ozellik tekrar yaziliyor null cekilmesine ragmen
+	
+	*/
+	
+	
+	
+	
+	
 %>
 </body>
 </html>
