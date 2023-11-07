@@ -27,8 +27,7 @@
 		
 	}
 
-	int sayi1 = Integer.parseInt(request.getParameter("sayi1"));
-	int sayi2 = Integer.parseInt(request.getParameter("sayi2"));
+	
 	
 	ServletConfig sC = getServletConfig();
 	String bilgi = sC.getInitParameter("bilgi");
@@ -38,9 +37,7 @@
 
 %>
 
-Sayi 1: <%= sayi1 %>
-<br>
-Sayi 2: <%= sayi2 %>
+
 <br>
 <p>Init Parametreleri<p/>
 Sayi 3: <%= sayi3 %>
@@ -55,17 +52,32 @@ Sayi 4: <%= sayi4 %>
 	
 	pageContext.setAttribute("sayi1", s1);
 	pageContext.setAttribute("sayi2", s2);
+	pageContext.setAttribute("boy", boy);
+	pageContext.setAttribute("bilgi", bilgi);
 	out.print("sayi1: ");
+	
 	out.print(pageContext.getAttribute("sayi1"));
 	out.print("sayi1: ");
 	out.print(pageContext.getAttribute("sayi2"));
-	
+	//SESSION_SCOPE oturuma, APPLICATION_SCOPE uygulama s., 
+	//REQUEST_SCOPE talebe cevap s., default PAGE_SCOPE dur. yazmazsan default oalrak kabul eder boy,
 	pageContext.setAttribute("bilgi", bilgi, pageContext.SESSION_SCOPE);
-	pageContext.setAttribute("kilo", kilo, pageContext.SESSION_SCOPE);
+	pageContext.setAttribute("kilo", kilo, pageContext.APPLICATION_SCOPE);
+	
 	
 	bilgi += " VIA SESSION OBJECT";
 	session.setAttribute("bilgi2", bilgi);
 	application.setAttribute("kilo2", kilo);
+	
+	out.println("<br>PageContext sayi1: "+pageContext.getAttribute("sayi1"));
+	out.println("<br>PageContext sayi2: "+pageContext.getAttribute("sayi2"));
+	out.println("<br>PageContext boy: "+pageContext.getAttribute("boy"));
+	out.println("<br>PageContext bilgi: "+pageContext.getAttribute("bilgi"));
+	
+	out.println("<br>Session Scope  bilgi: "+pageContext.getAttribute("bilgi", pageContext.SESSION_SCOPE));
+	out.println("<br>Session Scope  bilgi: "+session.getAttribute("bilgi"));
+	out.println("<br>Session Scope  bilgi2: "+pageContext.getAttribute("bilgi2", pageContext.SESSION_SCOPE));
+	out.println("<br>Session Scope  bilgi2: "+session.getAttribute("bilgi2"));
 
 %>
 </body>
