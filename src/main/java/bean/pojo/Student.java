@@ -1,6 +1,7 @@
 package bean.pojo;
-
-public class Student {
+// abstract ile soyut class haline geldi. Artik dogrudan Student olak obje intance edemeyecegiz. 
+//bu lise dershane ogrenci her neyse ordan obje olusturacagiz
+public abstract class Student {
 	private String no;
 	private String firstname;
 	private String lastname;

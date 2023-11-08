@@ -1,6 +1,7 @@
 package bean.servlet;
 import java.io.IOException;
 
+import bean.pojo.Klassenzimmerstudent;
 import bean.pojo.Student;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -18,7 +19,7 @@ public class StartUp extends HttpServlet{
 		String bilgi = "Students srvletinden geldim.";
 		req.setAttribute("info", bilgi); */
 		
-		Student student = new Student("1748","Mehmet","Gezer",12,'A');
+		Student student = new Klassenzimmerstudent("1748","Mehmet","Gezer",12,'A', null);
 		req.setAttribute("student", student);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("jspUseBean/Students.jsp");

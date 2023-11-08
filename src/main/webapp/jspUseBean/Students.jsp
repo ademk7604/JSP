@@ -19,8 +19,9 @@ Suan da Ogrenciler sayfasindayiz!!
 
 <!-- simdi bunlari useBean ile okuyalim -->
 <!--  student i extends almadigi icin class olarak belirtebilirim -->
+<!-- type="bean.pojo.Student" verimizin tipini de bu sekilde belirtebiliyoruz -->
 <h1>OGRENCI 1 BILGILERI</h1>
-<jsp:useBean id="student" class="bean.pojo.Student" scope="request">
+<jsp:useBean id="student" type="bean.pojo.Student" class="bean.pojo.Klassenzimmerstudent" scope="request">
 <!-- Ogrencimiz yoksa jsp:useBean icinde default set edebiliyoruz -->
 <jsp:setProperty property="no" name="student" value="0000"/>
 <jsp:setProperty property="firstname" name="student" value="FRISTNAME_YOK"/>
@@ -37,7 +38,7 @@ Suan da Ogrenciler sayfasindayiz!!
 <jsp:getProperty property="sube" name="student"/>
  
  <h2>Ogrenci 2 bilgileri :</h2>
-<jsp:useBean id="student2" class="bean.pojo.Student" scope="request">
+<jsp:useBean id="student2" type="bean.pojo.Student" class="bean.pojo.Klassenzimmerstudent" scope="request">
 <jsp:setProperty property="no" name="student2" value="0000"/>
 <jsp:setProperty property="firstname" name="student2" value="FRISTNAME_YOK"/>
 <jsp:setProperty property="lastname" name="student2" value="LASTNAME_YOK"/>
