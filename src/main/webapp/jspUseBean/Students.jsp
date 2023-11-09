@@ -44,8 +44,8 @@ Suan da Ogrenciler sayfasindayiz!!
 <jsp:setProperty property="lastname" name="student2" value="LASTNAME_YOK"/>
 <jsp:setProperty property="sinif" name="student2" value="0"/>
 <jsp:setProperty property="sube" name="student2" value='X'/> 
-
 </jsp:useBean>
+
 <jsp:getProperty property="no" name="student2"/>
 <jsp:getProperty property="firstname" name="student2"/>
 <jsp:getProperty property="lastname" name="student2"/>
