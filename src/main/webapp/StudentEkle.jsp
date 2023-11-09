@@ -33,9 +33,9 @@
 </head>
 <body>
 
-<form action="studentEkle" class="table">
+<form action="studentEkle" method="post">
 
-<table>
+<table class="table">
 <tr class="tr">
 <th class="th">Numara</th>
 <th class="th">Firstname</th>
@@ -71,8 +71,7 @@
 </tr>
 <tr class="tr">
 <td class="td"><jsp:getProperty property="no" name="eklenenStudent"/></td>
-<td class="td">
-<jsp:getProperty property="firstname" name="eklenenStudent"/>/
+<td class="td"><jsp:getProperty property="firstname" name="eklenenStudent"/>
 <jsp:getProperty property="lastname" name="eklenenStudent"/>
 </td>
 <td class="td">
